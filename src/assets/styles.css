@@ -1,0 +1,302 @@
+/* 導航列樣式 */
+* {
+  margin: 0; /* 移除預設邊距 */
+  padding: 0; /* 移除預設內距 */
+  box-sizing: border-box; /* 確保邊框和內距不會影響寬度 */
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif; /* 設定優先字型 */
+}
+
+/* 在 App.vue 的 main 樣式中 */
+main {
+  flex: 1; /* 讓 main 填滿剩餘空間 */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff; /* 背景顏色 */
+  box-sizing: border-box;
+}
+
+
+/* 導航列樣式 */
+.navbar {
+  position: fixed; /* 固定導航列位置 */
+  top: 0; /* 導航列距離頂部 0px */
+  left: 0; /* 導航列距離左側 0px */
+  width: 100%; /* 導航列寬度 100% */
+  z-index: 1000; /* 確保導航列位於最上層 */
+  display: flex; /* 使用Flexbox佈局 */
+  justify-content: space-between; /* 左右分佈項目 */
+  align-items: center; /* 垂直置中 */
+  padding: 20px 40px; /* 增加導航列內部間距 */
+  background-color: rgb(135, 129, 120); /* 背景色為白色 */
+  border-bottom: 3px solid #ccc; /* 增加較厚的底部邊框 */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 加強陰影效果 */
+  height: 100px;
+}
+
+/* 酒店名稱容器樣式 */
+.hotel-name {
+  display: flex;
+  flex-direction: column; /* 讓內容垂直排列 */
+  align-items: center; /* 水平置中 */
+  text-align: center; /* 文字置中 */
+}
+
+/* 英文名稱樣式 */
+.hotel-name-en {
+  font-size: 14px; /* 設定英文字體大小 */
+  color: #ffffff; /* 淡灰色文字 */
+  font-weight: bold; /* 中文名稱加粗 */
+  font-family: 'Playfair Display', 'Times New Roman', serif; /* 優雅英文字體 */
+  margin-bottom: 5px; /* 與中文名稱之間的間距 */
+  letter-spacing: 2px; /* 英文字母間距 */
+}
+
+/* 中文名稱樣式 */
+.hotel-name {
+  font-size: 22px; /* 中文字體大小 */
+  color: #ffffff; /* 黑色文字 */
+  letter-spacing: 10px; /* 英文字母間距 */
+  font-family: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif; /* 優雅中文字體 */
+}
+
+/* LOGO圖片樣式 */
+.navbar .logo img {
+  height: 60px; /* LOGO圖片高度 */
+  width: auto; /* 保持圖片比例 */
+  display: block; /* 確保圖片不會和文字混合 */
+  margin-right: 20px; /* 與其他內容保持間距 */
+}
+
+/* LOGO區塊字體樣式 */
+.navbar .logo {
+    display: flex; /* 使用Flexbox佈局 */
+    align-items: center; /* 垂直置中 */
+    gap: 10px; /* LOGO與文字間距 */
+}
+
+.navbar .logo-circle {
+  width: 45px; /* 圓形寬度 */
+  height: 45px; /* 圓形高度 */
+  border-radius: 80%; /* 圓形邊框 */
+  /*background-color: #e0e0e0;  背景灰色 */
+  display: flex; /* Flexbox方便圖片置中 */
+  align-items: center; /* 垂直置中 */
+  justify-content: center; /* 水平置中 */
+  overflow: hidden; /* 確保LOGO不超出圓形 */
+}
+
+.navbar .logo-circle img {
+  width: auto; /* LOGO圖片寬度 */
+  height: 215%; /* LOGO圖片高度 */
+  margin-top: 14px;
+  margin-left: 18px;
+  object-fit: cover; /* 確保圖片完整填滿 */
+}
+
+/* 導覽選單樣式 */
+.navbar ul {
+  list-style: none; /* 移除預設列表樣式 */
+  display: flex; /* 使用Flexbox佈局 */
+  gap: 50px; /* 導覽選單間距增大 */
+  margin: 0;
+  padding: 0;
+  margin-right: 100px;
+}
+
+/* 導覽選單項目樣式 */
+.navbar li a {
+  text-decoration: none; /* 移除文字裝飾 */
+  color: #ffffff; /* 字體顏色設為黑色 */
+  font-size: 17px; /* 字體大小 */
+  position: relative; /* 設定為相對定位，用於底線定位 */
+  padding-bottom: 5px; /* 預留底部間距，避免底線與文字太近 */
+}
+
+/* 滑鼠懸停時添加底線效果 */
+.navbar li a::after {
+  content: ''; /* 添加一個虛擬元素 */
+  position: absolute; /* 設定為絕對定位 */
+  bottom: 0; /* 位於元素底部 */
+  left: 0; /* 從左側開始 */
+  width: 0; /* 初始寬度為 0 */
+  height: 2px; /* 底線高度 */
+  background-color: #ffffff; /* 底線顏色設為黑色 */
+  transition: width 0.3s ease-in-out; /* 平滑過渡效果 */
+}
+
+/* 滑鼠滑到項目時，底線展開 */
+.navbar li a:hover::after {
+  width: 100%; /* 底線展開至 100% 寬度 */
+}
+
+
+/* 登入圖示連結樣式 */
+.login-link {
+  display: flex; /* 使用 Flexbox 置中圖示 */
+  align-items: center; /* 垂直置中 */
+}
+
+.login-icon {
+  width: 30px; /* 圖示寬度 */
+  height: 20px; /* 圖示高度 */
+  object-fit: contain; /* 圖示完整顯示 */
+  margin-left: 1px; /* 與前面項目保留間距 */
+  cursor: pointer; /* 顯示手型游標，表示可點擊 */
+}
+
+/* 訂房/湯屋預約區塊樣式 */
+.reservation-section {
+  padding: 40px 20px; /* 區塊內邊距 */
+  background-color: #f9f9f9; /* 背景色 */
+  text-align: center; /* 文字置中 */
+}
+
+.reservation-container {
+  display: flex; /* 使用 Flexbox 佈局 */
+  justify-content: center; /* 區塊水平置中 */
+  gap: 40px; /* 區塊間距 */
+  flex-wrap: wrap; /* 小螢幕換行 */
+}
+
+.reservation-box {
+  flex: 1 1 300px; /* 每個區塊的最小寬度 300px */
+  max-width: 400px; /* 最大寬度 */
+  background-color: #ffffff; /* 白色背景 */
+  padding: 30px; /* 內邊距 */
+  border: 1px solid #ddd; /* 邊框顏色 */
+  border-radius: 10px; /* 圓角邊框 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  transition: transform 0.3s ease-in-out; /* 滑鼠懸停過渡效果 */
+}
+
+.reservation-box:hover {
+  transform: translateY(-10px); /* 滑鼠懸停時上移效果 */
+}
+
+.reservation-box h2 {
+  font-size: 24px; /* 標題字體大小 */
+  margin-bottom: 10px; /* 標題下邊距 */
+  color: #333; /* 字體顏色 */
+}
+
+.reservation-box p {
+  font-size: 16px; /* 段落字體大小 */
+  color: #666; /* 淡灰色 */
+  margin-bottom: 20px; /* 段落下邊距 */
+}
+
+.reservation-btn {
+  display: inline-block;
+  text-decoration: none; /* 移除文字裝飾 */
+  background-color: #007BFF; /* 藍色按鈕 */
+  color: #fff; /* 文字顏色 */
+  padding: 10px 20px; /* 內邊距 */
+  border-radius: 5px; /* 圓角按鈕 */
+  font-size: 16px; /* 字體大小 */
+  transition: background-color 0.3s ease;
+}
+
+.reservation-btn:hover {
+  background-color: #0056b3; /* 滑鼠懸停按鈕顏色變深 */
+}
+
+/* 漢堡選單按鈕 */
+.hamburger {
+  display: none; /* 預設隱藏 */
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/*全螢幕 (大於 1024px) 設定*/
+@media (min-width: 1080px) {
+  .hamburger {
+    display: none; /* 全螢幕隱藏漢堡按鈕 */
+  }
+
+  .navbar ul {
+    display: flex; /* 正常顯示導覽選單 */
+    gap: 30px;
+    list-style: none;
+  }
+}
+
+/* 小於 1024px 時顯示漢堡選單 */
+@media (max-width: 1079px) {
+  .hamburger {
+    display: block; /* 顯示漢堡按鈕 */
+    position: relative; /* 讓 ul 依賴此元素定位 */
+    z-index: 1002;
+  }
+
+  .navbar ul {
+    display: none; /* 預設隱藏選單 */
+    flex-direction: column; /* 垂直排列 */
+    background-color: rgb(135, 129, 120); /* 背景色 */
+    position: absolute;
+    top: 100%; /* 顯示在 .hamburger 下方 */
+    right: -100px; /* 靠右對齊 */
+    width: 300px; /* 選單寬度 */
+    padding: 5px 5%; /* 調整內邊距 */
+    z-index: 1001;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 加陰影效果 */
+  }
+
+  .navbar ul.active {
+    display: flex; /* 點擊漢堡後顯示選單 */
+  }
+
+  .navbar li {
+    text-align: center; /* 文字致中對齊 */
+    margin: 10px 15px; /* 增加選單間距 */
+  }
+
+  .navbar li a {
+    color: #fff; /* 白色字體 */
+    text-decoration: none; /* 移除底線 */
+    font-size: 18px; /* 字體大小 */
+    display: block; /* 填滿整個區塊 */
+    padding: 5px 0; /* 增加點擊區域 */
+  }
+} 
+
+
+/* 超小螢幕 (最大寬度 480px) 的設定 */
+@media (max-width: 480px) {
+  .hamburger {
+    display: block; /* 顯示漢堡按鈕 */
+    position: relative; /* 讓 ul 依賴此元素定位 */
+    z-index: 1002;
+  }
+
+  .navbar ul {
+    display: none; /* 預設隱藏選單 */
+    flex-direction: column; /* 垂直排列 */
+    background-color: rgb(135, 129, 120); /* 背景色 */
+    position: absolute;
+    top: 100%; /* 顯示在 .hamburger 下方 */
+    right: -100px; /* 靠右對齊 */
+    width: 150px; /* 選單寬度 */
+    padding: 3px; /* 調整內邊距 */
+    z-index: 1001;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 加陰影效果 */
+  }
+
+  .navbar ul.active {
+    display: flex; /* 點擊漢堡後顯示選單 */
+  }
+
+  .navbar li {  
+    text-align: center; /* 文字置中對齊 */
+    margin: 1px 0; /* 增加選單間距 */
+  }
+
+  .navbar li a {
+    color: #fff; /* 白色字體 */
+    text-decoration: none; /* 移除底線 */
+    font-size: 12px; /* 字體大小 */
+    display: block; /* 填滿整個區塊 */
+    padding: 5px 0; /* 增加點擊區域 */
+  }
+}

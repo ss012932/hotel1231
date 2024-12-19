@@ -1,0 +1,37 @@
+.reservation-container {
+  display: flex; /* 使用 flexbox 排版 */
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  min-height: 100vh; /* 高度至少為視窗高度 100% */
+  padding: 20px; /* 基本內邊距 */
+  background-color: #691e1e; /* 背景色 */
+  color: #fff; /* 文字顏色 */
+  box-sizing: border-box; /* 包含 padding 在內 */
+  text-align: center; /* 內容置中 */
+}
+
+.reservation-container h1 {
+  font-size: 2.5rem; /* 基本字體大小 */
+}
+
+@media screen and (max-width: 768px) {
+  .reservation-container {
+    padding: 10px; /* 小螢幕減少內邊距 */
+    background-color: #691e1e; /* 小螢幕背景顏色稍微改變 */
+  }
+
+  .reservation-container h1 {
+    font-size: 1.8rem; /* 縮小字體大小 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .reservation-container {
+    padding: 5px; /* 極小螢幕再減少內邊距 */
+    background-color: #691e1e; /* 進一步調整背景顏色 */
+  }
+
+  .reservation-container h1 {
+    font-size: 1.5rem; /* 更小的字體大小 */
+  }
+}

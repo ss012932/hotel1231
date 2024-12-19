@@ -1,0 +1,104 @@
+/* 主圖片區樣式 */
+/* 輪播圖容器 */
+.carousel-container {
+  width: 100%; /* 滿版寬度 */
+  height: 800px; /* 高度 */
+  position: relative; /* 定位讓按鈕和指示器正確顯示 */
+  overflow: hidden; /* 隱藏超出範圍的內容 */
+}
+
+/* 輪播圖 */
+.carousel {
+  display: flex; /* 使用 Flexbox 排列圖片 */
+  height: 100%; /* 確保高度一致 */
+}
+
+/* 單張圖片 */
+.carousel-slide {
+  flex: 0 0 100%; /* 每張圖片占 100% 寬度 */
+  opacity: 0; /* 預設隱藏 */
+  transition: opacity 0.5s ease-in-out; /* 平滑過渡效果 */
+  position: absolute; /* 堆疊圖片 */
+  top: 0;
+  left: 0;
+}
+
+.carousel-slide.active {
+  opacity: 1; /* 只有當前圖片顯示 */
+  position: relative;
+}
+
+/* 圖片樣式 */
+.carousel-slide img {
+  width: 100%; /* 每張圖片滿版 */
+  height: 100%; /* 高度自適應 */
+  object-fit: cover; /* 確保圖片完整顯示 */
+}
+
+/* 底部指示器容器 */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px; /* 位於底部 */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; /* 水平排列按鈕 */
+  gap: 10px; /* 按鈕間距 */
+}
+
+/* 指示器按鈕 */
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%; /* 圓形按鈕 */
+  background-color: #fff; /* 白色按鈕 */
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  opacity: 1; /* 當前按鈕高亮 */
+  background-color: #000; /* 黑色按鈕 */
+}
+
+/* 關於我們內容區樣式 */
+.content-section {
+  display: flex; /* 使用Flexbox佈局 */
+  justify-content: space-between; /* 左右分佈內容框 */
+  gap: 30px; /* 增加內容框之間的間距 */
+  margin: 40px; /* 增加整個內容區的外部間距 */
+  flex-wrap: wrap; /* 當空間不足時自動換行 */
+}
+
+/* 內容框樣式 */
+.content-box {
+  flex: 1 1 calc(33.333% - 30px); /* 內容框占三分之一寬度 */
+  height: 200px; /* 增加內容框高度 */
+  background-color: #e0e0e0; /* 灰色背景，模擬內容 */
+  margin-bottom: 20px; /* 增加下方間距 */
+}
+
+/* 最新消息區樣式 */
+.news-section {
+  margin: 40px; /* 增加外部間距 */
+}
+
+.news-section h2 {
+  font-size: 28px; /* 增大標題字體 */
+  margin-bottom: 30px; /* 增加標題下方間距 */
+}
+
+.news-box {
+  flex: 1 1 calc(33.333% - 30px); /* 新聞框占三分之一寬度 */
+  height: 150px; /* 增加新聞框高度 */
+  background-color: #e0e0e0; /* 灰色背景，模擬內容 */
+  margin: 15px 0; /* 增加上下間距 */
+}
+
+/* Footer 樣式 */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

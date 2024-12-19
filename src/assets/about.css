@@ -1,0 +1,202 @@
+
+  .about-container {
+    display: flex; /* 使用 flexbox 排版 */
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    min-height: 100vh; /* 高度至少為視窗高度 100% */
+    padding: 20px; /* 基本內邊距 */
+    background-color: #691e1e; /* 背景色 */
+    color: #fff; /* 文字顏色 */
+    box-sizing: border-box; /* 包含 padding 在內 */
+    text-align: center; /* 內容置中 */
+  }
+  
+  .about-container h1 {
+    font-size: 2.5rem; /* 基本字體大小 */
+  }
+  
+
+ /* Hero 區塊 */
+.hero {
+  height: 500px;
+  background-color: #e0e0e0;
+}
+
+/* Content 樣式 */
+.content {
+  display: flex; /* 使用 Flexbox */
+  justify-content: space-between; /* 左右分散對齊 */
+  align-items: flex-start; /* 垂直頂端對齊 */
+  padding: 2rem 4rem; /* 內邊距 */
+  gap: 2rem; /* 左右間距 */
+}
+
+/* 左右各佔 50% 的寬度 */
+.description,
+.highlight {
+  width: 50%;
+  padding: 1rem; /* 內邊距 */
+}
+
+/* 分隔線 */
+.description {
+  border-right: 1px solid #ccc; /* 右側加一條灰色分隔線 */
+}
+
+.hotel-title {
+  text-align: center; /* 標題置中 */
+  margin: 2rem 0; /* 與下方內容的間距 */
+}
+
+.hotel-title h2 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 左右並排區塊 */
+.image-text-section {
+  display: flex; /* 使用 Flexbox */
+  align-items: center; /* 垂直置中對齊 */
+  justify-content: space-between; /* 左右分散對齊 */
+  padding: 2rem; /* 添加內邊距 */
+  gap: 2rem; /* 左右內容間距 */
+}
+
+/* 左側圖片 */
+.image-box {
+  width: 800px; /* 左側佔 50% 寬度 */
+  height: 460px; /* 設定高度 */
+  background-color: #e0e0e0; /* 灰色背景作為佔位符 */
+}
+
+/* 右側文字內容 */
+.text-content {
+  width: 50%; /* 右側佔 50% 寬度 */
+  padding:0rem 4rem;
+}
+
+.text-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.text-content p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* 交通資訊區塊 */
+.info-section {
+  background-image: url(./hotel.jpg); /* 替換為您的圖片路徑 */
+  background-size: cover; /* 圖片自動填滿 */
+  background-position: center; /* 圖片置中顯示 */
+  padding: 2rem; /* 內邊距 */
+  color: #ffffff; /* 文字顏色 */
+  position: relative; /* 相對定位 */
+}
+
+/* 添加文字背景遮罩（可選） */
+.info-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 65, 65, 0.8); /* 半透明白色遮罩 */
+  z-index: 1; /* 讓遮罩在文字下方 */
+}
+
+/* 文字內容樣式 */
+.info-content {
+  position: relative; /* 讓內容位於遮罩之上 */
+  z-index: 2; /* 提升層級 */
+  padding-left: 4rem;
+}
+
+.info-content h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+}
+
+.info-content h3 {
+  padding-top: 2rem;
+}
+
+.info-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0.5rem 0;
+}
+
+.info-content a {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info-p{
+  color: #ffffff;
+}
+
+.info-list {
+  padding-left: 1.5rem; /* 調整左邊縮進 */
+  margin: 0; /* 移除外邊距 */
+  list-style: disc; /* 使用預設的圓點 */
+}
+
+.info-list li {
+  line-height: 1.8; /* 增加行距 */
+  margin-bottom: 0.5rem; /* 每個列表項之間的間距 */
+}
+
+/* Footer 樣式 */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding: 10px; /* 小螢幕減少內邊距 */
+    background-color: #691e1e; /* 小螢幕背景顏色稍微改變 */
+  }
+
+  .about-container h1 {
+    font-size: 1.8rem; /* 縮小字體大小 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-container {
+    padding: 5px; /* 極小螢幕再減少內邊距 */
+    background-color: #691e1e; /* 進一步調整背景顏色 */
+  }
+
+  .about-container h1 {
+    font-size: 1.5rem; /* 更小的字體大小 */
+  }
+}
+  
+  
