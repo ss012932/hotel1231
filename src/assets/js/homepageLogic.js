@@ -18,7 +18,7 @@ export function loadImages() {
   export function startAutoSlide() {
     this.autoSlideInterval = setInterval(() => {
       this.nextSlide();
-    }, 4000);
+    }, 3500);
   }
   
   // 停止自動輪播
