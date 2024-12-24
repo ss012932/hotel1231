@@ -16,10 +16,12 @@ export default {
       },
       today: "", // 儲存今天的日期
       countries: [], // 儲存國家列表
+      passwordValidationMessage: "", // 密碼驗證訊息
+      passwordsMatch: true, // 密碼是否一致
     };
   },
-  methods: {
-    
+  methods: {  
+
     setToday() {
       const today = new Date();
       const yyyy = today.getFullYear();
@@ -43,6 +45,26 @@ export default {
         alert("載入國籍列表失敗，請稍後再試！");
       }
     },
+
+    
+    validatePasswords() {
+      if (!this.formData.confirmPassword) {
+        this.passwordValidationMessage = "";
+        this.passwordsMatch = true;
+        return;
+      }
+      if (this.formData.password === this.formData.confirmPassword) {
+        this.passwordValidationMessage = "密碼一致！";
+        this.passwordsMatch = true;
+      } else {
+        this.passwordValidationMessage = "密碼不一致，請檢查！";
+        this.passwordsMatch = false;
+      }
+    },
+
+
+
+
     async handleRegister() {
       // 簡單表單驗證
       if (this.formData.password !== this.formData.confirmPassword) {

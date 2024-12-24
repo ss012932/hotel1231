@@ -1,5 +1,4 @@
 <template>
-  
   <div class="register-page">
     <h2 class="title">會員註冊</h2>
     <form class="form" @submit.prevent="handleRegister">
@@ -28,18 +27,25 @@
         <small class="form-text">密碼長度為 8~20 位字母或數字</small>
       </div>
 
+      
+
       <!-- 確認密碼 -->
       <div class="form-group">
-        <label for="confirm-password" class="required-label"
-          >再次確認密碼</label
-        >
+        <label for="confirm-password" class="required-label">再次確認密碼</label>
         <input
           type="password"
           id="confirm-password"
           v-model="formData.confirmPassword"
           placeholder="請再次輸入密碼"
+          @input="validatePasswords"
           required
         />
+        <small
+          v-if="passwordValidationMessage"
+          :class="{ 'text-danger': !passwordsMatch, 'text-success': passwordsMatch }"
+        >
+          {{ passwordValidationMessage }}
+        </small>
       </div>
 
       <!-- 姓名 -->
@@ -88,17 +94,17 @@
       </div>
 
       <!-- 生日輸入框 -->
-<div class="form-group">
-  <label for="dob" class="required-label">生日</label>
-  <input
-    type="date"
-    class="form-control form-control-sm"
-    id="dob"
-    v-model="formData.dob"
-    :max="today"
-    required
-  />
-</div>
+      <div class="form-group">
+        <label for="dob" class="required-label">生日</label>
+        <input
+          type="date"
+          class="form-control form-control-sm"
+          id="dob"
+          v-model="formData.dob"
+          :max="today"
+          required
+        />
+      </div>
 
       <!-- 送出按鈕 -->
       <button type="submit" class="btn-submit">送出 ></button>
