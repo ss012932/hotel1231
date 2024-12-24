@@ -10,4 +10,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/food.css" scoped></style>
+<style src="@/assets/css/food.css" scoped></style>

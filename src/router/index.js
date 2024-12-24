@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomePage from '@/components/HomePage.vue'; // 首頁組件
-import LoginPage from '@/components/LoginPage.vue'; // 確保路徑正確
-import AboutPage from '@/components/AboutPage.vue';
+import LoginPage from '@/components/LoginPage.vue';
 import RoomPage from '@/components/RoomPage.vue';
 import NewsPage from '@/components/NewsPage.vue';
 import FoodPage from '@/components/FoodPage.vue';
 import ContactusPage from '@/components/ContactusPage.vue';
 import ReservationPage from '@/components/ReservationPage.vue';
+import RegisterPage from "@/components/RegisterPage.vue";
 
 Vue.use(VueRouter);
 
@@ -22,16 +22,19 @@ const routes = [
     name: 'Login',
     component: LoginPage, // 登入頁面組件
   },
+
   {
-    path: '/about',
-    name: 'About',
-    component: AboutPage, // 確保這裡正確引入 AboutPage 組件
+    path: "/register",
+    name: "Register",
+    component: RegisterPage,
   },
+
   {
     path: '/room',
     name: 'Room',
     component: RoomPage, // 確保這裡正確引入 RoomPage 組件
   },
+
   {
     path: '/news',
     name: 'News',

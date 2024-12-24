@@ -27,7 +27,7 @@ main {
   justify-content: space-between; /* 左右分佈項目 */
   align-items: center; /* 垂直置中 */
   padding: 20px 40px; /* 增加導航列內部間距 */
-  background-color: rgb(135, 129, 120); /* 背景色為白色 */
+  background-color: rgb(135, 129, 120); /* 背景色為色 */
   border-bottom: 3px solid #ccc; /* 增加較厚的底部邊框 */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 加強陰影效果 */
   height: 100px;
@@ -93,40 +93,100 @@ main {
   object-fit: cover; /* 確保圖片完整填滿 */
 }
 
-/* 導覽選單樣式 */
-.navbar ul {
-  list-style: none; /* 移除預設列表樣式 */
-  display: flex; /* 使用Flexbox佈局 */
-  gap: 50px; /* 導覽選單間距增大 */
-  margin: 0;
-  padding: 0;
-  margin-right: 100px;
+.navbar ul,
+.navbar li {
+  list-style: none !important; /* 強制移除圓點 */
 }
 
-/* 導覽選單項目樣式 */
+
+/* 導覽選單樣式 */
 .navbar li a {
   text-decoration: none; /* 移除文字裝飾 */
-  color: #ffffff; /* 字體顏色設為黑色 */
+  color: #ffffff; /* 字體顏色設為白色 */
   font-size: 17px; /* 字體大小 */
-  position: relative; /* 設定為相對定位，用於底線定位 */
-  padding-bottom: 5px; /* 預留底部間距，避免底線與文字太近 */
+  position: relative; /* 相對定位，用於控制虛擬元素位置 */
+  padding-bottom: 5px; /* 預留底部空間 */
+  display: inline-block;
 }
 
-/* 滑鼠懸停時添加底線效果 */
+/* 滑鼠懸停時的底線效果 */
 .navbar li a::after {
-  content: ''; /* 添加一個虛擬元素 */
-  position: absolute; /* 設定為絕對定位 */
-  bottom: 0; /* 位於元素底部 */
+  content: ''; /* 添加虛擬元素 */
+  position: absolute; /* 絕對定位 */
+  bottom: 0; /* 位於文字底部 */
   left: 0; /* 從左側開始 */
   width: 0; /* 初始寬度為 0 */
   height: 2px; /* 底線高度 */
-  background-color: #ffffff; /* 底線顏色設為黑色 */
-  transition: width 0.3s ease-in-out; /* 平滑過渡效果 */
+  background-color: #ffffff; /* 底線顏色 */
+  transition: width 0.3s ease; /* 平滑展開動畫 */
 }
 
-/* 滑鼠滑到項目時，底線展開 */
+/* 懸停時底線展開 */
 .navbar li a:hover::after {
-  width: 100%; /* 底線展開至 100% 寬度 */
+  width: 100%; /* 底線展開至整個按鈕寬度 */
+}
+
+/* 下拉選單樣式 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 17px;
+  position: relative;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+/* 滑鼠懸停時的底線效果（下拉按鈕） */
+.dropdown-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.dropdown-button:hover::after {
+  width: 100%;
+}
+
+/* 下拉選單內容 */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%; /* 從左側 50% 開始 */
+  transform: translateX(-50%); /* 將選單水平置中 */
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1000;
+  width: 200px;
+  text-align: center; /* 文字置中 */
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: rgb(135, 129, 120, 0.3); /* 背景色為灰色 */;
+}
+
+/* 顯示下拉選單時 */
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 
@@ -200,6 +260,14 @@ main {
   background-color: #0056b3; /* 滑鼠懸停按鈕顏色變深 */
 }
 
+/* Footer 樣式 */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
 /* 漢堡選單按鈕 */
 .hamburger {
   display: none; /* 預設隱藏 */
@@ -212,91 +280,113 @@ main {
 /*全螢幕 (大於 1024px) 設定*/
 @media (min-width: 1080px) {
   .hamburger {
-    display: none; /* 全螢幕隱藏漢堡按鈕 */
+    display: none;
   }
 
   .navbar ul {
-    display: flex; /* 正常顯示導覽選單 */
+    display: flex;
     gap: 30px;
-    list-style: none;
   }
 }
+
 
 /* 小於 1024px 時顯示漢堡選單 */
 @media (max-width: 1079px) {
   .hamburger {
-    display: block; /* 顯示漢堡按鈕 */
-    position: relative; /* 讓 ul 依賴此元素定位 */
-    z-index: 1002;
+    display: block;
   }
 
   .navbar ul {
-    display: none; /* 預設隱藏選單 */
-    flex-direction: column; /* 垂直排列 */
-    background-color: rgb(135, 129, 120); /* 背景色 */
+    display: none;
+    flex-direction: column;
+    background-color: rgb(135, 129, 120);
     position: absolute;
-    top: 100%; /* 顯示在 .hamburger 下方 */
-    right: -100px; /* 靠右對齊 */
-    width: 300px; /* 選單寬度 */
-    padding: 5px 5%; /* 調整內邊距 */
-    z-index: 1001;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 加陰影效果 */
+    top: 100%;
+    right: 0;
+    width: 250px;
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
   .navbar ul.active {
-    display: flex; /* 點擊漢堡後顯示選單 */
+    display: flex;
   }
 
   .navbar li {
-    text-align: center; /* 文字致中對齊 */
-    margin: 10px 15px; /* 增加選單間距 */
+    text-align: center;
+    margin: 10px 0;
   }
 
   .navbar li a {
-    color: #fff; /* 白色字體 */
-    text-decoration: none; /* 移除底線 */
-    font-size: 18px; /* 字體大小 */
-    display: block; /* 填滿整個區塊 */
-    padding: 5px 0; /* 增加點擊區域 */
+    font-size: 16px;
+    padding: 10px 0;
   }
-} 
+}
 
+
+
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background-color: rgb(135, 129, 120);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .navbar li {
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .navbar li a {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
 
 /* 超小螢幕 (最大寬度 480px) 的設定 */
 @media (max-width: 480px) {
   .hamburger {
-    display: block; /* 顯示漢堡按鈕 */
-    position: relative; /* 讓 ul 依賴此元素定位 */
-    z-index: 1002;
+    display: block;
   }
 
   .navbar ul {
-    display: none; /* 預設隱藏選單 */
-    flex-direction: column; /* 垂直排列 */
-    background-color: rgb(135, 129, 120); /* 背景色 */
+    display: none;
+    flex-direction: column;
+    background-color: rgb(135, 129, 120);
     position: absolute;
-    top: 100%; /* 顯示在 .hamburger 下方 */
-    right: -100px; /* 靠右對齊 */
-    width: 150px; /* 選單寬度 */
-    padding: 3px; /* 調整內邊距 */
-    z-index: 1001;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* 加陰影效果 */
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
   .navbar ul.active {
-    display: flex; /* 點擊漢堡後顯示選單 */
+    display: flex;
   }
 
-  .navbar li {  
-    text-align: center; /* 文字置中對齊 */
-    margin: 1px 0; /* 增加選單間距 */
+  .navbar li {
+    text-align: center;
+    margin: 5px 0;
   }
 
   .navbar li a {
-    color: #fff; /* 白色字體 */
-    text-decoration: none; /* 移除底線 */
-    font-size: 12px; /* 字體大小 */
-    display: block; /* 填滿整個區塊 */
-    padding: 5px 0; /* 增加點擊區域 */
+    font-size: 12px;
+    padding: 8px 0;
   }
 }

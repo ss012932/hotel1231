@@ -10,4 +10,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/contactus.css" scoped></style>
+<style src="@/assets/css/contactus.css" scoped></style>

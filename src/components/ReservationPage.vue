@@ -10,4 +10,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/reservation.css" scoped></style>
+<style src="@/assets/css/reservation.css" scoped></style>

@@ -1,7 +1,7 @@
 /* 登入頁面整體樣式 */
 .login-page {
   display: flex;
-  height: 100vh;
+  height: 94.5vh;
   background-color: rgb(135, 129, 120);
   color: #333;
 }
@@ -16,7 +16,7 @@
   align-items: center;
   color: #fff; /* 白色文字 */
   text-align: center;
-  background-image: url("@/assets/login.png"); /* 加入背景圖片 */
+  background-image: url("@/assets/picture/login.png"); /* 加入背景圖片 */
   background-size: cover; /* 讓圖片充滿整個區域 */
   background-position: center; /* 圖片置中 */
   background-repeat: no-repeat; /* 防止圖片重複 */
@@ -202,4 +202,52 @@
   position: absolute;
   top: 50%;
   left: 0;
+}
+
+/* 驗證碼樣式 */
+.captcha-container {
+  display: flex;
+  align-items: center;
+}
+
+.captcha-btn {
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  color: #6F4E37;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none; /* 防止文字被選取 */
+}
+
+.captcha-btn:hover {
+  background-color: #bbb;
+}
+
+input#captcha {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 更換驗證碼按鈕 */
+.change-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.change-btn img {
+  width: 24px; /* 設定圖片大小 */
+  height: 24px;
+  transition: transform 0.3s ease; /* 平滑縮放效果 */
+}
+
+.change-btn img:hover {
+  transform: rotate(90deg); /* 懸停時旋轉 */
 }

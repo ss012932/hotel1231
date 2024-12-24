@@ -10,4 +10,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/news.css" scoped></style>
+<style src="@/assets/css/news.css" scoped></style>

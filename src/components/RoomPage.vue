@@ -10,4 +10,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/room.css" scoped></style>
+<style src="@/assets/css/room.css" scoped></style>

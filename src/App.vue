@@ -3,7 +3,7 @@
     <!-- 載入畫面 -->
     <div id="loading-screen" class="loading-screen" v-show="isLoading">
       <div class="logo-circle">
-        <img src="@/assets/AW LOGO.png" alt="Hotel Logo" />
+        <img src="@/assets/picture/AW LOGO.png" alt="Hotel Logo" />
       </div>
     </div>
 
@@ -13,7 +13,7 @@
         <!-- 圓形 LOGO -->
         <router-link to="/">
           <div class="logo-circle">
-            <img src="@/assets/AW LOGO.png" alt="Hotel Logo" />
+            <img src="@/assets/picture/AW LOGO.png" alt="Hotel Logo" />
           </div>
         </router-link>
         <!-- 酒店名稱 -->
@@ -28,15 +28,23 @@
 
       <!-- 導覽選單 -->
       <ul :class="{ active: isMenuOpen }">
-        <li><router-link to="/about">飯店介紹</router-link></li>
-        <li><router-link to="/room">客房資訊</router-link></li>
+        <li>
+          <!-- 飯店介紹的下拉式選單 -->
+          <div class="dropdown">
+            <a class="dropdown-button">飯店介紹</a>
+            <div class="dropdown-menu">
+              <router-link to="/room" class="dropdown-item">客房介紹</router-link>
+              <router-link to="/spa" class="dropdown-item">湯屋介紹</router-link>
+              <router-link to="/food" class="dropdown-item">餐飲美饌</router-link>
+              <router-link to="/leisure" class="dropdown-item">休閒設施介紹</router-link>
+            </div>
+          </div>
+        </li>
         <li><router-link to="/news">最新消息</router-link></li>
-        <li><router-link to="/food">餐飲美饌</router-link></li>
         <li><router-link to="/contactus">聯絡我們</router-link></li>
-        <li><router-link to="/reservation">立即預定</router-link></li>
         <li>
           <router-link to="/login">
-            <img src="@/assets/user.png" alt="Login" class="login-icon" />
+            <img src="@/assets/picture/user.png" alt="Login" class="login-icon" />
           </router-link>
         </li>
       </ul>
@@ -47,6 +55,14 @@
       <router-view></router-view>
     </main>
 
+    <!-- 頁尾 -->
+    <footer class="footer">
+      <div class="address">
+        <p style="color: azure;">Copyright © 2024 翎藍秘境酒店 All Rights Reserved.</p>
+        
+      </div>
+     
+    </footer>
 
   </div>
 
@@ -54,7 +70,7 @@
 </template>
 
 <script>
-import menuController from "@/assets/menuController.js"; // 引入外部邏輯
+import menuController from "@/assets/js/menuController.js"; // 引入外部邏輯
 
 export default {
   name: "App",
@@ -75,8 +91,8 @@ export default {
 
 <style scoped>
 /* 導入外部樣式檔案 */
-@import "@/assets/styles.css";
-@import "@/assets/carousel.css"; /* 載入輪播圖樣式 */
+@import "@/assets/css/styles.css";
+@import "@/assets/css/carousel.css"; /* 載入輪播圖樣式 */
 
 /* 載入畫面樣式 */
 .loading-screen {

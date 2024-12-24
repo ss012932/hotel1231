@@ -1,0 +1,86 @@
+/* 最新消息區塊樣式 */
+.news-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.news-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 20%; /* 左側占 20% 空間 */
+  text-align: left;
+  gap: 1rem;
+}
+
+.news-englishtitle{
+  margin-bottom: -10px;
+  margin-left: 3px;
+}
+
+.news-title {
+  font-size: 2.0rem;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.news-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 150px;
+}
+
+.news-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.more-button {
+  margin-top: 0rem;
+  padding: 0.6rem 2.0rem;
+  font-size: 23px;
+  background-color: #6f4e37;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.news-right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三欄排列 */
+  gap: 5rem;
+  width: 75%; /* 右側占 75% 空間 */
+}
+
+.news-item {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  margin-left:-30px;
+}
+
+.news-image {
+  height: 200px;
+  background-color: #d0d0d0;
+  margin-bottom: 1rem;
+}
+
+.news-content {
+  text-align: left;
+}
+
+.news-date {
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.news-content-title {
+  font-size: 1rem;
+  color: #333;
+}
