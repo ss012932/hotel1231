@@ -13,26 +13,35 @@ export default {
         country: "",
         phone: "",
         dob: "",
-        subscribe: false,
       },
+      today: "", // 儲存今天的日期
       countries: [], // 儲存國家列表
     };
   },
   methods: {
+    
+    setToday() {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, "0"); // 月份補 0
+      const dd = String(today.getDate()).padStart(2, "0"); // 日期補 0
+      this.today = `${yyyy}-${mm}-${dd}`;
+    },
+
     async fetchCountryList() {
       try {
         const response = await axios.get("https://restcountries.com/v3.1/all");
         // 將數據格式化為所需的格式
-        this.countries = response.data.map((country) => ({
-          name: country.name.common, // 國家名稱
-          code: country.cca2,       // 國家代碼
-        }));
+        this.countries = response.data
+          .map((country) => ({
+            name: country.name.common, // 國家名稱
+            code: country.cca2, // 國家代碼
+          }))
+          .sort((a, b) => a.name.localeCompare(b.name)); // 按名稱排序 A~Z
       } catch (error) {
         console.error("無法加載國家列表", error);
         alert("載入國籍列表失敗，請稍後再試！");
       }
-
-
     },
     async handleRegister() {
       // 簡單表單驗證
@@ -57,7 +66,10 @@ export default {
       }
     },
   },
+
+
   created() {
-   this.fetchCountryList(); // 初始化時加載國家列表
+    this.setToday(); // 初始化時設定今天的日期
+    this.fetchCountryList(); // 初始化時加載國家列表
   },
 };

@@ -1,4 +1,5 @@
 <template>
+  
   <div class="register-page">
     <h2 class="title">會員註冊</h2>
     <form class="form" @submit.prevent="handleRegister">
@@ -56,6 +57,7 @@
       <!-- 國籍 -->
       <div class="form-group">
         <label for="country" class="required-label">國籍</label>
+
         <select
           id="country"
           class="form-select"
@@ -85,11 +87,18 @@
         />
       </div>
 
-      <!-- 生日 -->
-      <div class="form-group">
-        <label for="dob" class="required-label">生日</label>
-        <input type="date" id="dob" v-model="formData.dob" required />
-      </div>
+      <!-- 生日輸入框 -->
+<div class="form-group">
+  <label for="dob" class="required-label">生日</label>
+  <input
+    type="date"
+    class="form-control form-control-sm"
+    id="dob"
+    v-model="formData.dob"
+    :max="today"
+    required
+  />
+</div>
 
       <!-- 送出按鈕 -->
       <button type="submit" class="btn-submit">送出 ></button>
