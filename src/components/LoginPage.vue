@@ -68,26 +68,43 @@
           <span>或</span>
         </div>
 
-        <!-- 第三方登入按鈕 -->
-        <button type="button" class="social-btn facebook-btn">Facebook 帳號登入</button>
-        <button type="button" class="social-btn google-btn">Google 帳號登入</button>
-        <button type="button" class="social-btn line-btn">Line 帳號登入</button>
+         <!-- 第三方登入按鈕 -->
+       
+        <div id="googleSignInButton" class="social-btn google-btn"></div>
+        <button type="button" class="social-btn line-btn" @click="handleLineLogin">
+          Line 帳號登入
+        </button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+/* global google */ // 告訴 ESLint `google` 是全局變數
 import loginLogic from "@/assets/js/loginLogic.js"; // 引用外部邏輯
 
 export default {
   name: "LoginPage",
   mixins: [loginLogic], // 混入邏輯
+  mounted() {
+    // 初始化 Google 登入
+    this.initGoogleSignIn();
+  },
   methods: {
     goToRegister() {
-      this.$router.push("/register"); // 跳轉到註冊頁面
+      this.$router.push("/register");
     },
-
+    initGoogleSignIn() {
+      // 初始化 Google 按鈕
+      google.accounts.id.initialize({
+        client_id: "421425399671-acg35t5vaea41kv29dua63cok5o5nveu.apps.googleusercontent.com",
+        callback: this.handleGoogleLogin,
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("googleSignInButton"),
+        { theme: "outline", size: "large" } // 自訂樣式
+      );
+    },
   },
 };
 </script>

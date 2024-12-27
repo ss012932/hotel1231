@@ -20,8 +20,7 @@ export default {
       passwordsMatch: true, // 密碼是否一致
     };
   },
-  methods: {  
-
+  methods: {
     setToday() {
       const today = new Date();
       const yyyy = today.getFullYear();
@@ -46,7 +45,6 @@ export default {
       }
     },
 
-    
     validatePasswords() {
       if (!this.formData.confirmPassword) {
         this.passwordValidationMessage = "";
@@ -62,20 +60,27 @@ export default {
       }
     },
 
-
-
-
     async handleRegister() {
-      // 簡單表單驗證
+      // 驗證密碼一致性
       if (this.formData.password !== this.formData.confirmPassword) {
         alert("密碼與確認密碼不一致！");
         return;
       }
 
-      try {
-        // 發送 API 請求
-        const response = await api.post("/register", this.formData);
+      // 組裝 payload
+      const payload = {
+        Email: this.formData.email.trim(),
+        PasswordHash: this.formData.password.trim(), // 密碼
+        FullName: this.formData.fullname.trim(),
+        Countries: this.formData.country.trim(),
+        Phone: this.formData.phone.trim(),
+        Birth: new Date(this.formData.dob).toISOString(),
+      };
+      
+      console.log("發送的 payload：", payload);
 
+      try {
+        const response = await api.post("/Login/register", payload);
         if (response.data.success) {
           alert("註冊成功！");
           this.$router.push("/login"); // 跳轉到登入頁面
@@ -83,12 +88,23 @@ export default {
           alert(response.data.message || "註冊失敗！");
         }
       } catch (error) {
-        console.error("註冊失敗", error.response?.data || error.message);
-        alert(error.response?.data?.message || "伺服器錯誤，請稍後再試！");
+        if (error.response) {
+          console.error("伺服器返回錯誤", error.response.data);
+          if (error.response.status === 409) {
+              alert(error.response.data.message || "此信箱已被註冊！");
+          } else {
+              alert(error.response.data.message || "伺服器錯誤，請稍後再試！");
+          }
+      } else if (error.request) {
+          console.error("未收到伺服器回應", error.request);
+          alert("無法連接伺服器，請檢查網路或稍後再試！");
+      } else {
+          console.error("請求設置錯誤", error.message);
+          alert("發生未知錯誤，請稍後再試！");
+      }
       }
     },
   },
-
 
   created() {
     this.setToday(); // 初始化時設定今天的日期

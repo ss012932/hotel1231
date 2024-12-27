@@ -1,37 +1,217 @@
-.room-container {
-  display: flex; /* 使用 flexbox 排版 */
-  justify-content: center; /* 水平置中 */
-  align-items: center; /* 垂直置中 */
-  min-height: 100vh; /* 高度至少為視窗高度 100% */
-  padding: 20px; /* 基本內邊距 */
-  background-color: #691e1e; /* 背景色 */
-  color: #fff; /* 文字顏色 */
-  box-sizing: border-box; /* 包含 padding 在內 */
-  text-align: center; /* 內容置中 */
+.room-info-page {
+  font-family: Arial, sans-serif;
 }
 
-.room-container h1 {
-  font-size: 2.5rem; /* 基本字體大小 */
+/* Hero Section */
+.hero-section .hero-image {
+  width: 100%; /* 確保寬度滿版 */
+  height: 800px; /* 高度設為 800px，可依需求調整 */
+  background-image: url('@/assets/picture/room.png'); /* 替換為圖片路徑 */
+  background-size: cover; /* 確保圖片完全覆蓋區域 */
+  background-position: center; /* 圖片居中 */
+  background-repeat: no-repeat; /* 防止圖片重複 */
 }
 
-@media screen and (max-width: 768px) {
-  .room-container {
-    padding: 10px; /* 小螢幕減少內邊距 */
-    background-color: #691e1e; /* 小螢幕背景顏色稍微改變 */
-  }
-
-  .room-container h1 {
-    font-size: 1.8rem; /* 縮小字體大小 */
-  }
+/* 房型簡介 */
+.room-description {
+  display: flex;
+  flex-direction: column; /* 垂直排列卡片 */
+  gap: 80px; /* 卡片間距 */
+  margin-top: 60px; /* 與上方介紹圖的距離 */
+  align-items: center; /* 使內容置中 */
 }
 
-@media screen and (max-width: 480px) {
-  .room-container {
-    padding: 5px; /* 極小螢幕再減少內邊距 */
-    background-color: #691e1e; /* 進一步調整背景顏色 */
-  }
+.room-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 350px; /* 增加高度 */
+  width: 60%; /* 適當調整寬度，保持比例 */
+  margin: 0 auto; /* 水平置中 */
+}
 
-  .room-container h1 {
-    font-size: 1.5rem; /* 更小的字體大小 */
-  }
+
+.room-text {
+  width: 50%; /* 左側文字區域寬度 */
+  height: 350px; /* 正方形區域 */
+  background-color: #d9c7b5; /* 左側背景色 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 內容在垂直方向居中 */
+  align-items: center; /* 內容在水平方向居中 */
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.room-text h3 {
+  font-size: 1.5em; /* 標題字體大小 */
+  margin-bottom: 10px; /* 與段落文字的間距 */
+  font-weight: bold; /* 字體加粗 */
+  text-align: center; /* 標題文字居中 */
+}
+
+.room-text p {
+  font-size: 1em; /* 段落文字大小 */
+  line-height: 1.5; /* 行距 */
+  color: #333; /* 深色文字，易讀 */
+  margin-bottom: 20px; /* 與按鈕之間的間距 */
+  text-align: center; /* 段落文字居中 */
+}
+
+.room-text .learn-more-btn {
+  padding: 10px 20px; /* 按鈕內邊距 */
+  background-color: white; /* 白色背景 */
+  color: #000; /* 黑色文字 */
+  border: 1px solid #000; /* 黑色邊框 */
+  font-size: 1em; /* 按鈕字體大小 */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 過渡效果 */
+}
+
+.room-text .learn-more-btn:hover {
+  background-color: #000; /* 懸停時背景變黑 */
+  color: #fff; /* 文字變白 */
+}
+
+
+.room-image {
+  width: 60%; /* 右側圖片區域寬度 */
+  height: 350px; /* 正方形區域 */
+  background-color: #eaeaea;
+  position: relative;
+  top: -20px; /* 向上偏移效果 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 基數卡片效果 */
+.room-card:nth-child(odd) .room-text {
+  order: 1; /* 基數卡片文字在左側 */
+  top: 20px; /* 偏移方向 */
+  margin-right: -20px; /* 調整右邊距離 */
+}
+
+.room-card:nth-child(odd) .room-image {
+  order: 2; /* 基數卡片圖片在右側 */
+  top: -20px; /* 偏移方向 */
+  margin-left: -20px; /* 調整左邊距離 */
+}
+
+
+/* 偶數交錯效果 */
+.room-card:nth-child(even) .room-text {
+  order: 2; /* 偶數卡片文字在右側 */
+  top: -20px; /* 偏移方向相反 */
+  margin-left: -20px;
+}
+
+.room-card:nth-child(even) .room-image {
+  order: 1; /* 偶數卡片圖片在左側 */
+  top: 20px; /* 偏移方向相反 */
+  margin-right: -20px;
+}
+
+
+/* 房價表格區塊 */
+.room-pricing {
+  margin: 60px auto;
+  text-align: center;
+  width: 80%; /* 整體區域的寬度 */
+}
+
+.room-title {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-transform: uppercase; /* 標題大寫 */
+  letter-spacing: 1px; /* 增加間距 */
+}
+
+.room-pricing table {
+  width: 90%; /* 表格寬度 */
+  margin: 0 auto; /* 水平置中 */
+  border-collapse: collapse; /* 去除表格內部間距 */
+  border-radius: 10px; /* 圓角 */
+  overflow: hidden; /* 防止圓角超出 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 表格陰影 */
+}
+
+/* 表頭樣式 */
+.room-pricing th {
+  background-color: rgb(135, 129, 120); /* 背景色為色 */
+  color: white; /* 表頭文字顏色 */
+  font-weight: bold;
+  padding: 15px;
+  font-size: 1em;
+  text-transform: uppercase; /* 大寫文字 */
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* 表格內容樣式 */
+.room-pricing td {
+  padding: 15px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #ddd; /* 底部分隔線 */
+  text-align: center;
+  color: #333;
+}
+
+/* 偶數行樣式 */
+.room-pricing tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* 圓角設計 */
+.room-pricing tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.room-pricing tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.room-pricing tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.room-pricing tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+/* 訂房須知區塊 */
+.booking-notice {
+  margin: 40px auto;
+  padding: 30px; /* 區塊內邊距 */
+  width: 80%; /* 區塊寬度 */
+  background-color: #f9f9f9; /* 淡灰背景色 */
+  border: 1px solid #ccc; /* 外邊框 */
+  border-radius: 8px; /* 圓角 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+}
+
+/* 訂房須知標題 */
+.notice-title {
+  font-size: 1.8em; /* 標題字體大小 */
+  font-weight: bold; /* 標題加粗 */
+  margin-bottom: 2px; /* 與列表的間距 */
+  text-align: center; /* 標題置中 */
+  color: #333; /* 深灰色標題 */
+}
+
+/* 列表樣式 */
+.booking-notice ul {
+  padding-left: 20px; /* 列表縮進 */
+  margin: 0;
+  list-style: disc; /* 項目符號為圓點 */
+}
+
+.booking-notice li {
+  font-size: 1em; /* 列表文字大小 */
+  line-height: 1.8; /* 行高 */
+  margin-bottom: 10px; /* 每項間距 */
+  color: #555; /* 列表文字顏色 */
 }

@@ -1,0 +1,215 @@
+/* 整體容器樣式 */
+.member-center {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 20px;
+  min-height: 94.5vh; /* 確保頁面至少占滿瀏覽器高度 */
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column; /* 避免內部元素超出高度 */
+  align-items: center; /* 水平置中 */
+  justify-content: center; /* 垂直置中 */
+  box-sizing: border-box; /* 包含內外邊距 */
+}
+
+/* 內容容器樣式 */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 80%; /* 區域寬度佔滿 */
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  min-height: 600px; /* 設置最小高度，讓容器變得更長 */
+  overflow-y: auto; /* 如果內容溢出則啟用滾動條 */
+  margin-top: 90px;
+}
+
+/* 左側按鈕區樣式 */
+.sidebar {
+  width: 20%;
+  background-color: rgb(135, 129, 120);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #555;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #444;
+}
+
+/* 右側內容區樣式 */
+.main-content {
+  width: 75%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.main-content h2 {
+  color: rgb(135, 129, 120);
+  margin-bottom: 10px;
+}
+
+.main-content p {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* 會員資料頁面-start */
+/* 標題樣式 */
+.member-info h1 {
+  text-align: center;
+  font-size: 2em; /* 調整字體大小 */
+  margin-bottom: 20px; /* 減小與下方內容的距離 */
+  color: rgb(135, 129, 120); /* 主色 */
+}
+
+/* 資訊項目樣式 */
+.info-item {
+  margin-bottom: 20px; /* 調整項目間距 */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* 讓標籤和輸入框垂直排列 */
+  text-align: left;
+}
+
+.info-item label {
+  font-weight: bold;
+  color: rgb(135, 129, 120); /* 主色 */
+  margin-bottom: 8px; /* 增加標籤與輸入框的距離 */
+  font-size: 1em;
+}
+
+.info-item span {
+  font-size: 1em; /* 調整字體大小 */
+  color: rgb(50, 50, 50); /* 字體色調更深 */
+}
+
+.info-item input {
+  padding: 10px; /* 減小內距 */
+  border: 1px solid rgb(135, 129, 120); /* 主色 */
+  border-radius: 5px;
+  background-color: #fff; /* 白色背景 */
+  color: rgb(50, 50, 50); /* 深灰色字體 */
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-item input:focus {
+  outline: none;
+  border-color: rgb(115, 110, 102); /* 深一點的主色 */
+  box-shadow: 0 0 6px rgba(115, 110, 102, 0.5); /* 焦點的陰影效果 */
+}
+
+/* 儲存按鈕樣式 */
+.save-btn {
+  display: block;
+  width: 100%; /* 按鈕全寬 */
+  padding: 15px; /* 減小內距 */
+  margin-top: 20px;
+  background-color: rgb(135, 129, 120); /* 主色 */
+  color: #fff; /* 白色文字 */
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em; /* 調整按鈕文字大小 */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: rgb(115, 110, 102); /* 深一點的主色 */
+  transform: translateY(-3px); /* 按鈕略微上移 */
+}
+
+.save-btn:active {
+  transform: translateY(0); /* 點擊時回到原位 */
+}
+
+.info-item input[type="date"] {
+  padding: 10px;
+  border: 1px solid rgb(135, 129, 120);
+  border-radius: 5px;
+  background-color: #fff;
+  color: rgb(50, 50, 50);
+  font-size: 1em;
+  width: 100%; /* 確保全寬 */
+}
+
+/* 會員資料頁面--End */
+
+
+/*訂單詳情頁面--start*/
+/* 訂單篩選按鈕樣式 */
+.order-tabs {
+  margin-bottom: 20px;
+}
+
+.order-tabs button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-tabs button.active {
+  background-color: rgb(135, 129, 120);
+  color: #fff;
+}
+
+.order-tabs button:hover {
+  background-color: #bbb;
+  color: black;
+}
+
+/* 訂單標題文字 */
+.order-title{
+  font-size: 30px;
+}
+
+/* 訂單內容樣式 */
+.order-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 400px; /* 設置最大高度 */
+  overflow-y: auto; /* 啟用垂直滾動條 */
+  scroll-behavior: smooth; /* 平滑滾動效果 */
+}
+
+
+.order-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*訂單詳情頁面--End*/

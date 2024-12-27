@@ -1,0 +1,434 @@
+/* 全局樣式 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f5f0;
+  color: #3e3e3e;
+}
+
+/* 頁面容器 */
+.order-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 保證箭頭和標題佔據適當位置 */
+  padding: 10px 20px;
+  background-color: rgb(135, 129, 120); /* 背景色，可自定 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10%; /* 工具提示出現在圖片上方 */
+  left: 280%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.back-arrow {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1); /* 放大效果 */
+}
+
+.header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 28px;
+  flex: 1; /* 讓標題區域填滿中間空間 */
+  text-align: center;
+}
+
+/* 進度條 */
+.progress-bar {
+  display: flex;
+  justify-content: center; /* 等分步驟 */
+  align-items: center;
+  padding: 8px 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+  gap: 10px; /* 調整每個步驟之間的間距 */
+}
+
+/* 步驟樣式 */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ccc; /* 默認圓圈顏色 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999;
+  position: relative;
+}
+
+.step.active .circle {
+  border-color: #000; /* 當前步驟的圓圈顏色 */
+  color: #000; /* 當前步驟的文字顏色 */
+}
+
+.step .circle span {
+  text-align: center;
+  line-height: 1.2;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+.step.active .label {
+  color: #000; /* 當前步驟的標籤顏色 */
+}
+
+/* 分隔符樣式 */
+.separator {
+  font-size: 18px; /* 調整分隔符大小 */
+  color: #ccc;
+  margin: 0 5px; /* 減少分隔符左右的間距 */
+}
+
+
+
+/* 區塊樣式 */
+.content-section {
+  padding: 30px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex-grow: 1; /* 讓主要內容區塊自適應高度 */
+}
+
+
+.order-details,
+.discount-code,
+.order-summary {
+  margin-bottom: 20px;
+}
+
+.order-details h2,
+.discount-code h2,
+.order-summary h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+}
+
+.order-details h2{
+  margin-top: 30px;
+}
+
+.order-summary h2{
+  margin-top: 80px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.order-table th {
+  background-color: rgb(135, 129, 120) !important; /* 修改為指定顏色 */
+  color: #fff;
+}
+
+/* 訂單摘要 */
+.summary-item,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.summary-total {
+  font-weight: bold;
+  font-size: 20px;
+  color: #b38c5d;
+}
+
+
+/* 底部按鈕區塊 */
+.actions {
+  display: flex;
+  justify-content: flex-end; /* 將按鈕移動到右側 */
+  align-items: center; /* 垂直居中 */
+  padding: 10px 20px;
+  background-color: rgb(135, 129, 120);
+  width: 100%; /* 確保填滿整個寬度 */
+  box-sizing: border-box; /* 包含內邊距在寬度內 */
+  gap: 10px; /* 增加按鈕之間的間距 */
+}
+
+.back-btn,
+.next-btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn {
+  background-color: #ddd;
+  color: #000; /* 預設文字顏色 */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 添加過渡效果 */
+}
+
+.back-btn:hover {
+  background-color: #9a9999; /* 懸停時的背景色 */
+  color: #fff; /* 懸停時的文字顏色 */
+}
+
+.next-btn {
+  background-color: #a09688;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 添加過渡效果 */
+}
+
+.next-btn:hover {
+  background-color: #7e7569; /* 懸停時的背景色 */
+  color: #fff; /* 保持文字顏色 */
+}
+
+
+
+/* 全局樣式 */
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.info-note {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 表格樣式 */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-table th,
+.order-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.order-table th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+/* 表單樣式 */
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.birth-date input {
+  width: calc(33.33% - 10px);
+  margin-right: 10px;
+}
+
+.birth-date input:last-child {
+  margin-right: 0;
+}
+
+/* 備註 */
+textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* 條款確認 */
+.terms {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+
+
+
+.completion-screen {
+  text-align: center;
+}
+
+.checkmark-container {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+  stroke-width: 2;
+  margin-top: 150px;
+  stroke: #28a745; /* 綠色 */
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #28a745;
+   text-align: center;
+  animation: scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #28a745;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #28a745;
+  fill: none;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+.completion-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: -5px;
+  color: #333;
+}
+
+.completion-message {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.back-home-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-home-btn:hover {
+  background-color: #218838;
+}
+
+/* 動畫效果 */
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

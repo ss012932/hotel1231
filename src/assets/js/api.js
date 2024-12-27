@@ -6,7 +6,22 @@ const apiClient = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // 支援 Cookies（如果需要）
 });
+
+// 添加請求攔截器，用於攜帶 Authorization 標頭
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("authToken"); // 從本地存儲獲取 Token
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`; // 添加 Authorization 標頭
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 // 統一的 API 調用方法
 export default {

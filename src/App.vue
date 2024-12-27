@@ -8,7 +8,7 @@
     </div>
 
     <!-- 導航列 -->
-    <header class="navbar">
+    <header class="navbar" v-if="!$route.meta.hideNavbar">
       <div class="logo">
         <!-- 圓形 LOGO -->
         <router-link to="/">
@@ -43,9 +43,9 @@
         <li><router-link to="/news">最新消息</router-link></li>
         <li><router-link to="/contactus">聯絡我們</router-link></li>
         <li>
-          <router-link to="/login">
+          <a @click.prevent="handleMemberClick">
             <img src="@/assets/picture/user.png" alt="Login" class="login-icon" />
-          </router-link>
+          </a>
         </li>
       </ul>
     </header>
@@ -56,12 +56,11 @@
     </main>
 
     <!-- 頁尾 -->
-    <footer class="footer">
+    <footer class="footer" v-if="!$route.meta.hideFooter">
       <div class="address">
         <p style="color: azure;">Copyright © 2024 翎藍秘境酒店 All Rights Reserved.</p>
         
       </div>
-     
     </footer>
 
   </div>
